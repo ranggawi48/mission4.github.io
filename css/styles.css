@@ -1,0 +1,645 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar{
+    width: 0;
+}
+
+body{
+    min-height: 100vh;
+    color: #2e2e2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+.wrapper{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    padding: 30px 0;
+    display: flex;
+}
+
+.allContent{
+    position: relative;
+    max-height: 720px;
+    overflow-y: auto;
+    margin-top: 1rem;
+}
+
+@media  (min-width: 768px) {
+    .wrapper{
+        height: 50rem;
+        width: 25rem;
+        border-radius: 40px;
+        border: 10px solid #2e2e2e;
+    }
+
+    .allContent{
+    position: relative;
+    max-height: 600px;
+    overflow: scrollbar;
+    margin-top: 1rem;
+    }
+}
+
+.wrapper .screen{
+    flex: 1;
+    min-width: 100%;
+    transform: all  0.3s ;
+}
+
+.screenHomescreen {
+    position: absolute;
+    width: 100%;
+    transition: transform 0.5s ease; 
+}
+
+.profile {
+    position: absolute;
+    width: 100%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.wrapper.showProfile .screenHomescreen {
+    transform: translateX(-100%);
+}
+
+.wrapper.showProfile .profile {
+    transform: translateX(0%);
+}
+
+.wrapper.showProfile .screenBackdrop{
+    transform: translate(-50%, -70%);
+}
+
+.screenBackdrop{
+    width: 135%;
+    height: 25rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: -1;
+    transform: translateX(-50%);
+    border-radius: 0 0 50% 50%;
+    background-color: #91DDCF;
+    transition: all 0.3s;
+}
+
+.headWrapper{
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menuBtn{
+    width: 2rem;
+    cursor: pointer;
+    color: #2e2e2e;
+}
+
+.backBtn{
+    width: 2rem;
+    cursor: pointer;
+    color: #2e2e2e;
+}
+
+.date{
+    font-size: 1rem;
+    align-items: center;
+    color: #2e2e2e;
+}
+
+.headerContent{
+    padding: 0 30px;
+}
+
+.headProfile{
+    padding: 0 30px;
+}
+
+.welcome{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.welcome h1{
+    font-size: 1.5rem;
+}
+
+.welcome h2{
+    font-size: 1.2rem;
+}
+
+.welcome p{
+    font-weight: 500;
+}
+
+.welcome .img{
+    position: relative;
+}
+
+.welcome .img img{
+    width: 5rem;
+}
+
+.welcome .img .backdrop{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    background-color: #F7F9F2;
+    z-index: -1;
+}
+
+.profile .img {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.profile .img img {
+    width: 5rem;
+    z-index: 1; 
+}
+
+.profile .img .backdrop {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 5rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    background-color: #F7F9F2;
+    z-index: -1; 
+}
+
+.taskWrapper {
+    margin-top: 1rem;
+    height: calc(100% - 8rem);
+    padding: 0 30px;    
+    padding-bottom: 20px;
+    overflow: auto;
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.taskContent {
+    background-color: #F7F9F2;
+    border-radius: 0.5rem;
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.1);
+}
+
+.taskDatePriority {
+    display: flex;
+    gap: 1rem; 
+}
+
+.taskDatePriority .inputDate,
+.taskDatePriority .selectPriority {
+    flex: 1; 
+}
+
+.taskContent h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.taskContent label {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.taskContent textarea,
+.taskContent input[type="date"],
+.taskContent select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.taskContent textarea {
+    height: 100px;
+    resize: none;
+}
+
+.taskContent textarea:focus,
+.taskContent input[type="date"]:focus,
+.taskContent select:focus {
+    border-color: #91DDCF;
+    box-shadow: 0 0 8px rgb(145, 221, 207, 0.5); 
+    outline: none;
+}
+
+.addTask {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem; 
+    margin-top: 1rem;
+}
+
+.addTask input[type="button"] {
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#addTask {
+    background-color: #91DDCF;
+    color: #fff;
+    border-radius: 8px; 
+}
+
+#addTask:hover {
+    background-color: #58b88f;
+}
+
+#addTask:active {
+    background-color: #58b88f;
+}
+
+#cancelTask {
+    background-color: #E8C5E5;
+    color: #fff;
+    border-radius: 8px; 
+}
+
+#cancelTask:hover {
+    background-color: #F19ED2;
+}
+
+#cancelTask:active {
+    background-color: #F19ED2;
+}
+
+.todoWrapper {
+    height: calc(100% - 8rem);
+    padding: 0 30px;    
+    padding-bottom: 20px;
+    overflow: auto;
+}
+
+.todo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.todoContent {
+    width: 100%;
+    background-color: #F7F9F2;
+    border-radius: 0.5rem;
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.1);
+}
+
+.doneWrapper {
+    height: calc(100% - 8rem);
+    padding: 0 30px;    
+    padding-bottom: 30px;
+    overflow: auto;
+}
+
+.done {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.doneContent {
+    width: 100%;
+    background-color: #F7F9F2;
+    border-radius: 0.5rem;
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.1);
+}
+
+.doneContent h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.todoContent h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: -1rem;
+}
+
+table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+thead th {
+    background-color: #F19ED2;
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    border-bottom: 2px solid #ccc;
+}
+
+tbody td {
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #e9f1ff;
+}
+
+td, th {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.5rem;
+}
+
+.todoContent table {
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+table tbody td {
+    padding: 1rem;
+}
+
+tbody td.status {
+    text-align: center;
+}
+
+.editTask,
+.deleteTask {
+    width: 1rem; 
+    height: 1rem;
+    display: inline-flex; 
+    align-items: center;  
+    justify-content: space-between; 
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: fill 0.3s ease;
+}
+
+.editTask svg {
+    fill: #91DDCF;
+    transition: fill 0.3s ease;
+}
+
+.editTask:hover svg {
+    fill: #58b88f;
+}
+
+
+.deleteTask svg {
+    fill: #E8C5E5;
+    transition: fill 0.3s ease;
+}
+
+.deleteTask:hover svg {
+    fill: #F19ED2;
+}
+
+#doneList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#doneList li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #333;
+}
+
+#doneList li span {
+    text-decoration: line-through;
+    color: #888;
+}
+
+#doneList input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2); 
+}
+
+#doneList input[type="checkbox"]:checked {
+    accent-color: #58b88f; 
+}
+
+#deleteAllTasks {
+    border: none;
+    padding: 0.75rem 1.5rem;
+    background-color: #E8C5E5;
+    color: #fff;
+    border-radius: 8px; 
+}
+
+#deleteAllTasks:hover {
+    background-color: #F19ED2;
+}
+
+#deleteAllTasks:active {
+    background-color: #F19ED2;
+}
+
+.profileContent {
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profileBody {
+    background-color: #F7F9F2; 
+    border-radius: 0.5rem;
+    padding: 2rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.profileBody:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
+}
+
+.profileBody h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 600; 
+}
+
+.profileBody .inputProfile {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 20px 0px;
+}
+
+.profileBody .inputProfile input {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333; 
+    background-color: #fff;
+    padding: 15px 20px;
+    border: 2px solid #ddd;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profileBody .inputProfile input:focus {
+    border-color: #91DDCF; 
+    box-shadow: 0 0 8px rgb(145, 221, 207, 0.5); 
+}
+
+.profileBody .inputProfile::before {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.btnProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.btnProfile #btnProfile {
+    background-color: #91DDCF; 
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px; 
+    padding: 0.75rem 1.5rem; 
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btnProfile #btnProfile:hover {
+    background-color: #58b88f; 
+    transform: translateY(-2px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+}
+
+.btnProfile #btnProfile:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(125, 206, 160, 0.5); 
+}
+
+.btnProfile #btnProfile:active {
+    transform: translateY(0); 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.btnProfile #btnCencel {
+    background-color: #E8C5E5; 
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px; 
+    padding: 0.75rem 1.5rem; 
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btnProfile #btnCencel:hover {
+    background-color: #F19ED2; 
+    transform: translateY(-2px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+}
+
+.btnProfile #btnCencel:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(241, 158, 210, 0.5); 
+}
+
+.btnProfile #btnCencel:active {
+    transform: translateY(0); 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.overdue {
+    color: red;
+    font-weight: bold;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+}

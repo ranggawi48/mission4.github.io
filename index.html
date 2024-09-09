@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>To Do List App</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="screenBackdrop"></div>
+        <div class="screenHomescreen">
+            <div class="headWrapper">
+                <div class="menuBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+                    </svg>
+                </div>
+                <div class="date">
+                    <p id="current-date"></p>
+                </div>
+            </div>
+            <div class="headerContent">
+                <div class="welcome">
+                    <div class="content">
+                        <h1 class="output1" id="output1">Name</h1>
+                        <h2 class="output2" id="output2">Job Title</h2>
+                        <p><span id="totalTasks">0</span> Tasks</p>
+                    </div>
+                    <div class="img">
+                        <div class="backdrop"></div>
+                        <img src="./image/me.png" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="allContent">
+                <div class="taskWrapper">
+                    <div class="task">
+                        <div class="taskContent">
+                            <div class="inputTask">
+                                <h2>Add Task</h2>
+                                <textarea name="taks" id="taks" placeholder="Enter your task"></textarea>
+                            </div>
+                            <div class="taskDatePriority">
+                                <div class="inputDate">
+                                    <label for="dateInput">Batas Waktu</label>
+                                    <input type="date" id="dateInput" />
+                                </div>
+                                <div class="selectPriority">
+                                    <label for="priorityInput">Priority</label>
+                                    <select id="priorityInput">
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="addTask">
+                                <input type="button" id="cancelTask" value="Cancel">
+                                <input type="button" id="addTask" value="Add Task">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="todoWrapper">
+                    <div class="todo">
+                        <div class="todoContent">
+                            <h2>To Do List</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Taks</th>
+                                        <th>Batas Waktu</th>
+                                        <th>Priority</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="todoList">
+                                    <!-- Task items will be added here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="doneWrapper">
+                    <div class="done">
+                        <div class="doneContent">
+                            <h2>Completed Tasks</h2>
+                            <ul id="doneList">
+                                <!-- Done items will be added here -->
+                            </ul>
+                            <button id="deleteAllTasks">Delete All Tasks</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="headProfile">
+                <div class="backBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                    </svg>
+                </div>
+                <div class="img">
+                    <div class="backdrop"></div>
+                    <img src="./image/me.png" alt="" />
+                </div>
+                <div class="profileContent">
+                    <div class="profileBody">
+                        <h1>Profile</h1>
+                        <div class="inputProfile">
+                            <h3 for="Name">Name</h3>
+                            <input type="text" id="userName" placeholder="Enter your name" />
+                        </div>
+                        <div class="inputProfile">
+                            <h3 for="jobTitle">Job Title</h3>
+                            <input type="text" id="jobTitle" placeholder="Enter your job title" />
+                        </div>
+                        <div class="btnProfile">
+                            <input type="button" id="btnCencel" value="Cancel">
+                            <input type="button" id="btnProfile" value="Simpan">
+                        </div>
+                        <div class="footer">
+                            <p>Copyright &copy; 2024. Rangga Wijaya.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="./js/main.js"></script>
+
+</html>
