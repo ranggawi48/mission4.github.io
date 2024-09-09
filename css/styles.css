@@ -426,9 +426,9 @@ tbody td.status {
 
 .editTask,
 .deleteTask {
-    width: 1rem; 
-    height: 1rem;
-    display: inline-flex; 
+    width: 1.5rem; 
+    height: 1.5rem;
+    display: flex; 
     align-items: center;  
     justify-content: space-between; 
     background-color: transparent;
